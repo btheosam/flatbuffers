@@ -1,0 +1,26 @@
+// Example IDL file for Battle Ship schema.
+
+namespace Battleship.Game;
+
+enum Stype:byte { Cruiser=0, Destroyer=1, Patrol=3 }
+enum Wtype:byte { Laser = 0, Nuclear, Conventional}
+
+struct location {
+  latitude:float;
+  longitude:float;
+}
+
+table Weapon {
+  name:string;
+  type:Wtype;
+}
+
+table Ship {
+  pos:location;
+  type:Stype;
+  name:string;
+  weapons:[Weapon];
+}
+
+
+root_type Ship;
